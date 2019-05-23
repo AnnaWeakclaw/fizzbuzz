@@ -12,8 +12,11 @@ end
 
 class SayHelloToMyLittleFriend
   
+  def initialize(almost_email = EmailClient)
+    @almost_email = almost_email
+  end
   def run
-    email = EmailClient.new
+    email = @almost_email.new
     email.message.send(
       "friend@example.com",
       "HELLO!"
